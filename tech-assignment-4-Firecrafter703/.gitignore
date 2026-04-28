@@ -1,0 +1,6 @@
+.env
+*answer*
+.venv
+.pio
+.vscode*
+*__pycache__*

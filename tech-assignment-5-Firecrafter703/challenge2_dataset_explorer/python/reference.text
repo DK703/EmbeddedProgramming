@@ -1,0 +1,36 @@
+{success: true, result: {…}}
+result
+: 
+by_label
+: 
+empty
+: 
+10861
+present
+: 
+10561
+[[Prototype]]
+: 
+Object
+by_student
+: 
+Array(103)
+[0 … 99]
+0
+: 
+{student_id: 'A18515258', count: 911}
+1
+: 
+{student_id: 'A18527352', count: 744}
+2
+: 
+{student_id: 'A16718962', count: 691}
+3
+: 
+{student_id: 'A18516413', count: 688}
+4
+: 
+{student_id: 'A17818091', count: 634}
+5
+: 
+{student_id: 'A18547780', count: 628}

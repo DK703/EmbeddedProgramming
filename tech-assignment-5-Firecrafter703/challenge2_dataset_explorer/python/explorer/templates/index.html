@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataset Explorer</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Thermal Dataset Explorer</h1>
+        <p>Exploring the collective class dataset from Sophos API</p>
+    </header>
+
+    <main>
+        <section id="stats-section">
+            <h2>Dataset Statistics</h2>
+            <div id="stats-container">
+                <div class="stat-card">
+                    <h3>Total Frames</h3>
+                    <p id="total-frames">Loading...</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Empty</h3>
+                    <p id="empty-count">Loading...</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Present</h3>
+                    <p id="present-count">Loading...</p>
+                </div>
+                <div class="stat-card">
+                    <h3>WebSocket</h3>
+                    <p id="ws-status">Disconnected</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="charts-section">
+            <h2>Class Distribution</h2>
+            <div class="chart-container">
+                <canvas id="distribution-chart"></canvas>
+            </div>
+        </section>
+
+        <section id="leaderboard-section">
+            <h2>Contributor Leaderboard</h2>
+            <table id="leaderboard">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Student ID</th>
+                        <th>Frames</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-body">
+                    <!-- TODO: Populate via JavaScript -->
+                </tbody>
+            </table>
+        </section>
+
+        <section id="gallery-section">
+            <h2>Sample Frames</h2>
+            <button id="refresh-samples">Refresh Samples</button>
+            <div id="sample-gallery">
+                <!-- TODO: Render 8x8 heatmaps via JavaScript Canvas -->
+                 <!-- If there are 5 frames, ill just create 5 separate canvas!--->
+                 <canvas id="heatmap" width="240" height="240"></canvas>
+                 <div id = "label"></div>
+                 <canvas id="heatmap2" width="240" height="240"></canvas>
+                 <div id = "label2"></div>
+                 <canvas id="heatmap3" width="240" height="240"></canvas>
+                 <div id = "label3"></div>
+                 <canvas id="heatmap4" width="240" height="240"></canvas>
+                 <div id = "label4"></div>
+                 <canvas id="heatmap5" width="240" height="240"></canvas>
+                 <div id = "label5"></div>
+            </div>
+        </section>
+
+        <section id="upload-section">
+            <h2>Upload New Frame</h2>
+            <form id="upload-form">
+                <div class="form-group">
+                    <label for="label">Label:</label>
+                    <select id="label" name="label" required>
+                        <option value="empty">Empty</option>
+                        <option value="present">Present</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pixels">Pixels (64 comma-separated values):</label>
+                    <textarea id="pixels" name="pixels" rows="3" required placeholder="22.5, 22.3, 22.4, ..."></textarea>
+                </div>
+                <button type="submit">Upload Frame</button>
+            </form>
+            <p id="upload-status"></p>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', path='script.js') }}"></script>
+</body>
+</html>
